@@ -12,7 +12,7 @@ CONVERSTIONS_TO_M_SQUAR = {
 }
 
 
-def square_meters_to_square_feet(base: str, to: str, square_meters: float):
+def convert_area(base: str, to: str, square_meters: float):
     # Conversion factor from square meters to square feet
     base = base.lower()
     to = to.lower()
@@ -29,4 +29,4 @@ def square_meters_to_square_feet(base: str, to: str, square_meters: float):
 
 if __name__ == "__main__":
 
-    print(square_meters_to_square_feet("km2", "mile2", 30))
+    print(convert_area("km2", "mile2", 30))
