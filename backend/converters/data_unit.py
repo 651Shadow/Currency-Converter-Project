@@ -22,6 +22,6 @@ def convert_data_unit(value: float, from_unit: str, to_unit: str):
 
 if __name__ == "__main__":
     # Example usage
-    print(convert_data_unit(1024, "KB", "MB"))  # Should output 1.0
-    print(convert_data_unit(1, "GB", "MB"))  # Should output 1024.0
-    print(convert_data_unit(2048, "MB", "GB"))  # Should output 2.0
+    print(convert_data_unit(1024, "KB", "MB"))
+    print(convert_data_unit(1, "GB", "MB"))  
+    print(convert_data_unit(2048, "MB", "GB"))  

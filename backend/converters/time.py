@@ -25,7 +25,6 @@ def convert_time(value: float, from_unit: str, to_unit: str):
 
 
 if __name__ == "__main__":
-    # Example usage
-    print(convert_time(120, "minutes", "hours"))  # Should output 2.0
-    print(convert_time(2, "days", "hours"))  # Should output 48.0
-    print(convert_time(3600, "seconds", "hours"))  # Should output 1.0
+    print(convert_time(120, "minutes", "hours"))
+    print(convert_time(2, "days", "hours"))  
+    print(convert_time(3600, "seconds", "hours"))
