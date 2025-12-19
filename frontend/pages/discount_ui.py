@@ -61,7 +61,6 @@ class DiscountConverter:
     def get_user_input(self):
         price = self.entry1.get().strip()
         discount_percent = self.entry2.get().strip()
-        
 
         checks = []
         if not price.isdigit():
@@ -75,17 +74,18 @@ class DiscountConverter:
             checks.append(False)
         else:
             checks.append(True)
+
         if checks[0] is False and checks[1] is False:
             return None, None
+
         if checks[0] is False:
             return None, None
+
         if checks[1] is False:
             return None, None
-        
+
         price = float(price)
         discount_percent = float(discount_percent)
-
-
 
         return price, discount_percent
 
@@ -96,7 +96,7 @@ class DiscountConverter:
         discounted_price = calc_discount(price, discount_percent)
 
         self.answer.config(text=f"Your Answer: {discounted_price: .2f}")
-        
+
 
 if __name__ == "__main__":
     app = DiscountConverter()
