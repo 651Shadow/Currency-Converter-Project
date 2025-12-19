@@ -28,6 +28,7 @@ class Converter_frames:
             "Temperature",
             "Speed",
             "Discount Calculator",
+            "Binary",
             "Numerical Systems",
         ]
 
