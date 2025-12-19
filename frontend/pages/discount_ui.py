@@ -3,7 +3,7 @@ from tkinter import ttk
 from backend.converters.discount import calc_discount
 
 
-class Discount_ui:
+class DiscountConverter:
     def __init__(self):
         self.root = tk.Tk()
         self.root.title("Discount Calculator")
@@ -99,4 +99,4 @@ class Discount_ui:
         
 
 if __name__ == "__main__":
-    app = Discount_ui()
+    app = DiscountConverter()

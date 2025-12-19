@@ -1,6 +1,7 @@
 import tkinter as tk
 from tkinter import ttk
 
+
 class Converter_frames:
     def __init__(self, root):
         self.root = root
@@ -27,15 +28,15 @@ class Converter_frames:
             "Temperature",
             "Speed",
             "Discount Calculator",
-            "Numerical Systems"
+            "Numerical Systems",
         ]
 
         row = 0
         column = 0
 
         for btnName in buttons:
-            btn = ttk.Button(self.main_frame, text = btnName, style='Accent.TButton')
-            btn.grid(row = row, column = column, padx = 25, pady = 25, sticky="nsew")
+            btn = ttk.Button(self.main_frame, text=btnName, style="Accent.TButton")
+            btn.grid(row=row, column=column, padx=25, pady=25, sticky="nsew")
 
             column += 1
 
@@ -49,5 +50,3 @@ class Converter_frames:
 
         for row in range(row + 1):
             self.main_frame.rowconfigure(row, weight=1)
- 
-
