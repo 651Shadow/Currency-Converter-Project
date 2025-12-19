@@ -1,16 +1,17 @@
 TIME_PER_HOUR = {
-    "seconds": 3600,
-    "minutes": 60,
-    "hours": 1,
-    "days": 0.0416667,
-    "weeks": 0.00595238,
-    "microseconds": 3600000000,
-    "milliseconds": 3600000,
-    "years": 0.000114155,
+    "second": 3600,
+    "minute": 60,
+    "hour": 1,
+    "day": 0.0416667,
+    "week": 0.00595238,
+    "microsecond": 3600000000,
+    "millisecond": 3600000,
+    "year": 0.000114155,
 }
 
 
 def convert_time(value: float, from_unit: str, to_unit: str):
+
     if from_unit not in TIME_PER_HOUR or to_unit not in TIME_PER_HOUR:
         raise ValueError(f"Unsupported from_unit: {from_unit}")
 
@@ -26,5 +27,5 @@ def convert_time(value: float, from_unit: str, to_unit: str):
 
 if __name__ == "__main__":
     print(convert_time(120, "minutes", "hours"))
-    print(convert_time(2, "days", "hours"))  
+    print(convert_time(2, "days", "hours"))
     print(convert_time(3600, "seconds", "hours"))
