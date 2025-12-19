@@ -10,7 +10,6 @@ class Discount_ui:
         self.root.minsize(500, 350)
 
         self.build_ui()
-
         self.root.mainloop()
 
     def build_ui(self):
@@ -62,28 +61,42 @@ class Discount_ui:
     def get_user_input(self):
         price = self.entry1.get().strip()
         discount_percent = self.entry2.get().strip()
+        
 
-        # TODO: Validation double check
-
+        checks = []
         if not price.isdigit():
             self.answer.config(text="Invalid price input, Numbers ONLY!")
-            return
+            checks.append(False)
+        else:
+            checks.append(True)
 
         if not discount_percent.isdigit():
             self.answer.config(text="Invalid discount percent input, Numbers ONLY!")
-            return
-
+            checks.append(False)
+        else:
+            checks.append(True)
+        if checks[0] is False and checks[1] is False:
+            return None, None
+        if checks[0] is False:
+            return None, None
+        if checks[1] is False:
+            return None, None
+        
         price = float(price)
         discount_percent = float(discount_percent)
+
+
 
         return price, discount_percent
 
     def convert(self):
         price, discount_percent = self.get_user_input()
+        if price is None or discount_percent is None:
+            return
         discounted_price = calc_discount(price, discount_percent)
 
         self.answer.config(text=f"Your Answer: {discounted_price: .2f}")
-
+        
 
 if __name__ == "__main__":
     app = Discount_ui()

@@ -28,4 +28,6 @@ def convert_currency(amount, from_currency, to_currency):
 
 if __name__ == "__main__":
     print(convert_currency(100, "USD", "EGP"))
-    print("Warning: This conversion might not be up-to-date due to outdated currency rates and api content misinformation.")
+    print(
+        "Warning: This conversion might not be up-to-date due to outdated currency rates and api content misinformation."
+    )
