@@ -7,7 +7,7 @@ class DiscountConverter:
     def __init__(self):
         self.root = tk.Tk()
         self.root.title("Discount Calculator")
-        self.root.minsize(500, 350)
+        self.root.minsize(500, 375)
 
         self.build_ui()
         self.root.mainloop()
@@ -23,7 +23,9 @@ class DiscountConverter:
         self.main_frame = ttk.Frame(self.root, padding=20)
         self.main_frame.pack(fill="both", expand=True)
 
-        # The Enter Price label and the entry field
+        # Add UI elements here
+
+        # Price entry handler
         ttk.Label(self.main_frame, text="Enter Price").grid(
             row=0, column=0, padx=5, pady=(10, 20), sticky="w"
         )
@@ -42,7 +44,7 @@ class DiscountConverter:
         )
         self.answer.grid(row=2, column=0, columnspan=2, padx=5, pady=5, sticky="nsew")
 
-        # The Entry and backward buttons
+        # Convert & GO back buttons
         ttk.Button(self.main_frame, text="Go Back").grid(
             row=3, column=0, padx=10, pady=15, sticky="ew"
         )
@@ -93,9 +95,12 @@ class DiscountConverter:
         price, discount_percent = self.get_user_input()
         if price is None or discount_percent is None:
             return
+
         discounted_price = calc_discount(price, discount_percent)
 
-        self.answer.config(text=f"Your Answer: {discounted_price: .2f}")
+        self.answer.config(
+            text=f"Your Answer: {discounted_price: .2f} {discount_percent}"
+        )
 
 
 if __name__ == "__main__":

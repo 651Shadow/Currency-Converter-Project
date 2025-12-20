@@ -1,6 +1,7 @@
+from logging import root
 import tkinter as tk
 from tkinter import ttk
-from frontend.constants.currencies import CURRENCIES
+from frontend.constants.data_constants import CURRENCIES
 from backend.converters.currency import convert_currency
 
 
@@ -8,7 +9,7 @@ class CurrencyConverter:
     def __init__(self):
         self.root = tk.Tk()
         self.root.title("Currency Converter")
-        self.root.minsize(500, 350)
+        self.root.minsize(500, 375)
 
         self.build_ui()
 
@@ -98,7 +99,7 @@ class CurrencyConverter:
         amount = float(amount_str)
         result = convert_currency(amount, from_currency, to_currency)
 
-        self.answer_label.config(text=f"Your Answer --> {result} ")
+        self.answer_label.config(text=f"Your Answer --> {result} {to_currency}")
 
 
 if __name__ == "__main__":

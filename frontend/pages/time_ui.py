@@ -7,7 +7,7 @@ class TimeConverter:
     def __init__(self):
         self.root = tk.Tk()
         self.root.title("Time Converter")
-        self.root.minsize(500, 350)
+        self.root.minsize(500, 375)
 
         self.build_ui()
 
@@ -84,7 +84,7 @@ class TimeConverter:
         amount = float(amount_str)
         result = convert_time(amount, from_unit, to_unit)
 
-        self.answer.config(text=f"Time converted --> {result}")
+        self.answer.config(text=f"Time converted --> {result} {to_unit}")
 
 
 if __name__ == "__main__":

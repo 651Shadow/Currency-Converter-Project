@@ -7,7 +7,7 @@ from backend.converters.data_unit import convert_data_unit
 class DataConverter:
     def __init__(self):
         self.root = tk.Tk()
-        self.root.minsize(500, 350)
+        self.root.minsize(500, 3)
 
         self.root.title("Data Converter")
 
@@ -32,8 +32,8 @@ class DataConverter:
         ttk.Label(self.main_frame, text="Enter Data Size").grid(
             row=0, column=0, padx=5, pady=(10, 20), sticky="w"
         )
-        self.entry1 = ttk.Entry(self.main_frame)
-        self.entry1.grid(row=0, column=1, padx=5, pady=5, sticky="ew")
+        self.amount_entry = ttk.Entry(self.main_frame)
+        self.amount_entry.grid(row=0, column=1, padx=5, pady=5, sticky="ew")
 
         # User Input unit to convert from
         ttk.Label(self.main_frame, text="From Unit").grid(
@@ -72,7 +72,7 @@ class DataConverter:
             self.main_frame.columnconfigure(c, weight=1)
 
     def get_user_input(self):
-        amount = self.entry1.get().strip()
+        amount = self.amount_entry.get().strip()
         from_input = self.convert_from.get()
         to_input = self.convert_to.get()
 
@@ -84,11 +84,12 @@ class DataConverter:
         # Implement conversion logic here
         if not amount_str.isdigit():
             self.result_label.config(text="Invalid input, Try again")
+            return
 
         amount = float(amount_str)
 
         result = convert_data_unit(amount, from_input, to_input)
-        self.result_label.config(text=f"Your result: {result}")
+        self.result_label.config(text=f"Your result: {result:.2f} {to_input} ")
 
 
 if __name__ == "__main__":

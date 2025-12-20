@@ -166,3 +166,5 @@ CURRENCIES = [
     "ZWG",
     "ZWL",
 ]
+
+AREAS = ["sq_m", "sq_cm", "sq_mm", "sq_km", "sq_ft", "sq_in", "sq_yd", "sq_mile"]

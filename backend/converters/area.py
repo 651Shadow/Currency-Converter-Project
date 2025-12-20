@@ -1,18 +1,18 @@
 import math
 
 CONVERSTIONS_TO_M_SQUAR = {
-    "m2": 1,
-    "cm2": 10000,
-    "mm2": 1000000,
-    "km2": 0.000001,
-    "ft2": 10.7639,
-    "in2": 1550.0031,
-    "yd2": 1.19599,
-    "mile2": 0.000000386102,
+    "sq_m": 1,
+    "sq_cm": 10000,
+    "sq_mm": 1000000,
+    "sq_km": 0.000001,
+    "sq_ft": 10.7639,
+    "sq_in": 1550.0031,
+    "sq_yd": 1.19599,
+    "sq_mile": 0.000000386102,
 }
 
 
-def convert_area(base: str, to: str, square_meters: float):
+def convert_area(square_meters: float, base: str, to: str):
     # Conversion factor from square meters to square feet
     base = base.lower()
     to = to.lower()
