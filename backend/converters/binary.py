@@ -13,7 +13,7 @@ def binary_to_text(binary_str):
     text_result = "".join(chr(int(char, 2)) for char in chars)
     print(text_result)
 
-    return text_result, print("chars:", chars)
+    return text_result
 
 
 if __name__ == "__main__":
