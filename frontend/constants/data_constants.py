@@ -170,3 +170,5 @@ CURRENCIES = [
 AREAS = ["sq_m", "sq_cm", "sq_mm", "sq_km", "sq_ft", "sq_in", "sq_yd", "sq_mile"]
 
 LENGTHS = ["km", "m", "cm", "mm", "ft", "inch"]
+
+TEMP_VALUES = ["Celsius", "Fahrenheit", "Kelvin"]

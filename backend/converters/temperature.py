@@ -1,6 +1,6 @@
 import pytemperature as pt
 
-ss = ["C", "F", "K"]
+ss = ["Celsius", "Fahrenheit", "Kelvin"]
 
 
 def Temperature_convert(value: float, base: str, to: str):
