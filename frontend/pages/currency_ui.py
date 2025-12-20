@@ -79,8 +79,7 @@ class CurrencyConverter:
         for c in range(2):
             self.main_frame.columnconfigure(c, weight=1)
 
-        # Getting all user inputs
-
+    # Getting all user inputs
     def get_user_input(self):
         amount = self.amount_entry.get()
         from_currency = self.from_currency_combobox.get()

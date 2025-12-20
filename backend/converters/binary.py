@@ -15,6 +15,7 @@ def binary_to_text(binary_str):
 
     return text_result, print("chars:", chars)
 
+
 if __name__ == "__main__":
     input_text = "Hel73lo"
     binary_output = text_to_binary(input_text)
