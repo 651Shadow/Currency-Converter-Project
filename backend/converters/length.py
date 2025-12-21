@@ -1,5 +1,9 @@
 # Placeholder module for the Conversion Calculator project.
+<<<<<<< HEAD
 # Conversion 
+=======
+# Conversion
+>>>>>>> 84b446c915193bfeaaae222e9e22e84a975616cd
 CONVERSION_FACTORS = {
     "m": 1,
     "km": 0.001,
@@ -9,9 +13,16 @@ CONVERSION_FACTORS = {
     "inch": 39.37007874,
     "yard": 1.093613298,
     "mile": 0.000621371,
+<<<<<<< HEAD
     "lightyear": 1.057000834e-16
 }
 
+=======
+    "lightyear": 1.057000834e-16,
+}
+
+
+>>>>>>> 84b446c915193bfeaaae222e9e22e84a975616cd
 def convert_length(value, from_unit, to_unit):
     if from_unit not in CONVERSION_FACTORS:
         return f"Error: Unknown unit '{from_unit}'"
@@ -29,4 +40,7 @@ if __name__ == "__main__":
     print(convert_length(5, "ft", "m"))
     print(convert_length(100, "cm", "inch"))
     print(convert_length(2, "mile", "km"))
+<<<<<<< HEAD
 
+=======
+>>>>>>> 84b446c915193bfeaaae222e9e22e84a975616cd

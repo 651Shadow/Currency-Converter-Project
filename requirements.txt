@@ -1,4 +1,3 @@
-# Add your dependencies here
 tk
 requests
-beautifulsoup4
+pytemperature
