@@ -31,4 +31,4 @@ def convert_area(square_meters: float, base: str, to: str):
 
 if __name__ == "__main__":
 
-    print(convert_area("km2", "mile2", 30))
+    print(convert_area(30, "km2", "mile2"))

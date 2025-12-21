@@ -12,7 +12,7 @@ class DataConverter:
         self.root.minsize(500, 375)
         self.root.title("Data Converter")
 
-        self.styling(self.root)
+        styling(self.root)
 
         self.build_ui()
 
