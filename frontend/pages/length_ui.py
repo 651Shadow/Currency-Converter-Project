@@ -1,6 +1,6 @@
 import tkinter as tk
 from tkinter import ttk
-from backend.converters.length import length_converter
+from backend.converters.length import convert_length
 from frontend.constants.data_constants import LENGTHS
 from frontend.styles import styling
 
@@ -98,7 +98,7 @@ class LengthConverter:
 
         length = float(length_str)
 
-        converted_length = length_converter(length, unit, conversion_unit)
+        converted_length = (length, unit, conversion_unit)
 
         self.answer.config(
             text=f"Final Length: {converted_length: .2f} {conversion_unit}"
