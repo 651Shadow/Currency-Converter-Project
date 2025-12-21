@@ -1,7 +1,4 @@
-try:
-    from . import numbersystem as nt
-except Exception:
-    import numbersystem as nt
+import numbersystem as nt
 
 conver=["bin","hexa","octa"]
 
