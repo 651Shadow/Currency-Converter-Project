@@ -19,6 +19,7 @@ class VolumeConverter:
 
         self.root.mainloop()
 
+    # Add Ui elements
     def build_ui(self):
         ttk.Label(
             self.root,
@@ -47,9 +48,9 @@ class VolumeConverter:
             self.main_frame, values=VOLUME_VALUES, state="readonly"
         )
         self.convert_from.grid(row=1, column=1, padx=5, pady=5, sticky="ew")
-        self.convert_from.current(1)  # Default L
+        self.convert_from.current(1)
 
-        # To Unit
+        # To Unit label, drop-down menu
         ttk.Label(self.main_frame, text="To Unit").grid(
             row=2, column=0, padx=5, pady=(10, 20), sticky="w"
         )
@@ -57,9 +58,9 @@ class VolumeConverter:
             self.main_frame, values=VOLUME_VALUES, state="readonly"
         )
         self.convert_to.grid(row=2, column=1, padx=5, pady=5, sticky="ew")
-        self.convert_to.current(0)  # Default mL
+        self.convert_to.current(0)
 
-        # Result
+        # Result label
         self.result_label = ttk.Label(
             self.main_frame,
             text="Your result will appear here --> ",
@@ -67,7 +68,7 @@ class VolumeConverter:
         )
         self.result_label.grid(row=3, column=0, padx=5, pady=(10, 20), sticky="w")
 
-        # Convert Button
+        # Convert & Go back Buttons
         ttk.Button(
             self.main_frame,
             text="Convert",
@@ -75,7 +76,6 @@ class VolumeConverter:
             command=self.convert,
         ).grid(row=4, column=1, padx=10, pady=15, sticky="ew")
 
-        # Back Button
         ttk.Button(self.main_frame, text="Go Back", command=self.go_back).grid(
             row=4, column=0, padx=10, pady=15, sticky="ew"
         )
@@ -89,19 +89,15 @@ class VolumeConverter:
         amount = self.volume_entry.get().strip()
         from_input = self.convert_from.get()
         to_input = self.convert_to.get()
+
         return amount, from_input, to_input
 
     def convert(self):
         amount_str, from_input, to_input = self.get_user_input()
 
-        # Manual validation instead of try/except
-        if not amount_str:
-            self.result_label.config(text="Please enter a value.")
-            return
-
-        # allow one decimal point
-        if amount_str.count(".") > 1 or not amount_str.replace(".", "", 1).isdigit():
-            self.result_label.config(text="Invalid number! Try again.")
+        # Validate input
+        if not amount_str.isdigit():
+            self.result_label.config(text="Please enter a valid number.")
             return
 
         amount = float(amount_str)

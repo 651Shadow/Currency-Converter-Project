@@ -18,7 +18,8 @@ class BinaryConverter:
         self.root.mainloop()
 
     def build_ui(self):
-        # Page Title
+        # Add Ui elements here
+
         self.page_label = ttk.Label(
             self.root,
             padding=20,
@@ -27,11 +28,10 @@ class BinaryConverter:
         )
         self.page_label.pack()
 
-        # Main Frame
         self.main_frame = ttk.Frame(self.root, padding=20)
         self.main_frame.pack(fill="both", expand=True)
 
-        # Input Entry
+        # Input field and label
         ttk.Label(self.main_frame, text="Enter text / binary").grid(
             row=0, column=0, padx=5, pady=(10, 20), sticky="w"
         )
@@ -47,7 +47,7 @@ class BinaryConverter:
             row=1, columnspan=2, column=0, padx=5, pady=5, sticky="w"
         )
 
-        # Buttons
+        # Convert and Go Back Buttons
         ttk.Button(
             self.main_frame,
             text="Convert",

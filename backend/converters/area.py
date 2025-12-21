@@ -16,6 +16,7 @@ def convert_area(square_meters: float, base: str, to: str):
     # Conversion factor from square meters to square feet
     base = base.lower()
     to = to.lower()
+
     if base not in CONVERSTIONS_TO_M_SQUAR or to not in CONVERSTIONS_TO_M_SQUAR:
         raise ValueError("Unsupported unit for conversion")
 

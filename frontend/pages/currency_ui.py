@@ -114,5 +114,5 @@ class CurrencyConverter:
         App(tk.Tk())
 
 
-# if __name__ == "__main__":
-#     app = CurrencyConverter()
+if __name__ == "__main__":
+    app = CurrencyConverter()
