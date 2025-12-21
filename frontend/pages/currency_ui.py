@@ -1,15 +1,23 @@
-from logging import root
 import tkinter as tk
 from tkinter import ttk
+
 from frontend.constants.data_constants import CURRENCIES
 from backend.converters.currency import convert_currency
+from frontend.styles import styling
 
 
 class CurrencyConverter:
-    def __init__(self, root):
-        self.root = root
+    def __init__(self):
+        self.root = tk.Tk()
+
+        self.root.title("Length Calculator")
+        self.root.minsize(500, 375)
+
+        styling(self.root)
 
         self.build_ui()
+
+        self.root.mainloop()
 
     def build_ui(self):
 
@@ -61,9 +69,12 @@ class CurrencyConverter:
         self.answer_label.grid(row=3, column=0, columnspan=2, sticky="ew")
 
         # Convert & GO back buttons
-        ttk.Button(self.main_frame, text="Convert", command=self.convert).grid(
-            row=4, column=1, padx=10, pady=15, sticky="ew"
-        )
+        ttk.Button(
+            self.main_frame,
+            text="Convert",
+            style="Accent.TButton",
+            command=self.convert,
+        ).grid(row=4, column=1, padx=10, pady=15, sticky="ew")
 
         ttk.Button(self.main_frame, text="Go Back").grid(
             row=4, column=0, padx=10, pady=15, sticky="ew"

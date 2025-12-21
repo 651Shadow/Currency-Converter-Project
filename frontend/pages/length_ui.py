@@ -2,15 +2,20 @@ import tkinter as tk
 from tkinter import ttk
 from backend.converters.length import length_converter
 from frontend.constants.data_constants import LENGTHS
+from frontend.styles import styling
 
 
-class DiscountConverter:
+class LengthConverter:
     def __init__(self):
         self.root = tk.Tk()
+
         self.root.title("Length Calculator")
         self.root.minsize(500, 375)
 
+        styling(self.root)
+
         self.build_ui()
+
         self.root.mainloop()
 
     def build_ui(self):
@@ -67,6 +72,7 @@ class DiscountConverter:
         ttk.Button(
             self.main_frame,
             text="Calculate Length",
+            style="Accent.TButton",
             command=self.convert,
         ).grid(row=4, column=1, padx=10, pady=15, sticky="ew")
 
@@ -100,4 +106,4 @@ class DiscountConverter:
 
 
 if __name__ == "__main__":
-    app = DiscountConverter()
+    app = LengthConverter()

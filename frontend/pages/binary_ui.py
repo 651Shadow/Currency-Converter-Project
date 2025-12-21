@@ -1,14 +1,17 @@
 import tkinter as tk
 from tkinter import ttk
 from backend.converters.binary import text_to_binary
+from frontend.styles import styling
 
 
 class BinaryConverter:
     def __init__(self):
         self.root = tk.Tk()
-        self.root.title("Binary Converter")
 
+        self.root.title("Binary Converter")
         self.root.minsize(500, 375)
+
+        styling(self.root)
 
         self.build_ui()
 
@@ -48,6 +51,7 @@ class BinaryConverter:
         ttk.Button(
             self.main_frame,
             text="Convert",
+            style="Accent.TButton",
             command=self.convert,
         ).grid(row=2, column=1, padx=10, pady=15, sticky="ew")
 

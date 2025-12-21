@@ -1,7 +1,10 @@
 import tkinter as tk
 from tkinter import ttk
+
 from backend.converters.area import convert_area
 from frontend.constants.data_constants import AREAS
+
+from frontend.styles import styling
 
 
 class AreaConverter:
@@ -10,6 +13,8 @@ class AreaConverter:
 
         self.root.title("Area Converter")
         self.root.minsize(500, 375)
+
+        styling(self.root)
 
         self.build_ui()
 
@@ -69,9 +74,12 @@ class AreaConverter:
         ttk.Button(self.main_frame, text="Go Back").grid(
             row=4, column=0, padx=10, pady=15, sticky="ew"
         )
-        ttk.Button(self.main_frame, text="Convert", command=self.convert).grid(
-            row=4, column=1, padx=10, pady=15, sticky="ew"
-        )
+        ttk.Button(
+            self.main_frame,
+            text="Convert",
+            style="Accent.TButton",
+            command=self.convert,
+        ).grid(row=4, column=1, padx=10, pady=15, sticky="ew")
 
         # Making rows and columns dynamic
         for row in range(4):

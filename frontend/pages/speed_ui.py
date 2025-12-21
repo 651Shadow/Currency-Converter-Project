@@ -2,14 +2,17 @@ import tkinter as tk
 from tkinter import ttk
 from backend.converters.speed import speed_converter
 from frontend.constants.data_constants import SPEED_VALUES
+from frontend.styles import styling
 
 
 class SpeedConverter:
     def __init__(self):
         self.root = tk.Tk()
-        self.root.title("Speed Calculator")
 
+        self.root.title("Speed Calculator")
         self.root.minsize(500, 375)
+
+        styling(self.root)
 
         self.build_ui()
 
@@ -36,8 +39,6 @@ class SpeedConverter:
         self.distance_entry = ttk.Entry(self.main_frame)
         self.distance_entry.grid(row=0, column=1, padx=5, pady=5, sticky="ew")
 
-        # ------------
-
         # Create a label for the time unit drop-down menu
         ttk.Label(self.main_frame, text="Select time unit").grid(
             row=1, column=0, padx=5, pady=(10, 20), sticky="w"
@@ -48,8 +49,6 @@ class SpeedConverter:
         )
         self.time_unit.grid(row=1, column=1, padx=5, pady=5, sticky="ew")
         self.time_unit.current(1)
-
-        # --------
 
         # Create a label for conversion speed unit
         ttk.Label(self.main_frame, text="Convert speed to").grid(
@@ -62,8 +61,6 @@ class SpeedConverter:
         self.conversion_speed_unit.grid(row=2, column=1, padx=5, pady=5, sticky="ew")
         self.conversion_speed_unit.current(0)
 
-        # --------
-
         # Answer Label
         self.answer_label = ttk.Label(
             self.main_frame, text="Speed result will appear here --> "
@@ -73,7 +70,10 @@ class SpeedConverter:
         )
 
         self.convert_btn = ttk.Button(
-            self.main_frame, text="Calculate", command=self.convert
+            self.main_frame,
+            text="Calculate",
+            style="Accent.TButton",
+            command=self.convert,
         ).grid(row=4, column=1, padx=10, pady=15, sticky="ew")
 
         self.go_back_btn = tk.Button(self.main_frame, text="Go Back").grid(

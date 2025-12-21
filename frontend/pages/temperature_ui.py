@@ -2,14 +2,17 @@ import tkinter as tk
 from tkinter import ttk
 from backend.converters.temperature import Temperature_convert
 from frontend.constants.data_constants import TEMP_VALUES
+from frontend.styles import styling
 
 
 class TemperatureConverter:
     def __init__(self):
         self.root = tk.Tk()
-        self.root.title("Temperature Converter")
 
+        self.root.title("Temperature Converter")
         self.root.minsize(500, 375)
+
+        styling(self.root)
 
         self.build_ui()
 
@@ -36,8 +39,6 @@ class TemperatureConverter:
         self.temp_entry = ttk.Entry(self.main_frame)
         self.temp_entry.grid(row=0, column=1, padx=5, pady=5, sticky="ew")
 
-        # ------------
-
         # Create a label for the unit and drop-down menu
         ttk.Label(self.main_frame, text="Select unit").grid(
             row=1, column=0, padx=5, pady=(10, 20), sticky="w"
@@ -48,8 +49,6 @@ class TemperatureConverter:
         )
         self.unit_entry.grid(row=1, column=1, padx=5, pady=5, sticky="ew")
         self.unit_entry.current(1)
-
-        # --------
 
         # Create a label for the conversion to unit and drop-down menu
         ttk.Label(self.main_frame, text="Convert to unit").grid(
@@ -62,8 +61,6 @@ class TemperatureConverter:
         self.conversion_unit.grid(row=2, column=1, padx=5, pady=5, sticky="ew")
         self.conversion_unit.current(0)
 
-        # --------
-
         # Answer Label
         self.answer_label = ttk.Label(
             self.main_frame, text="Temperature will go here --> "
@@ -73,7 +70,10 @@ class TemperatureConverter:
         )
 
         self.convert_btn = ttk.Button(
-            self.main_frame, text="Convert", command=self.convert
+            self.main_frame,
+            text="Convert",
+            style="Accent.TButton",
+            command=self.convert,
         ).grid(row=4, column=1, padx=10, pady=15, sticky="ew")
 
         self.go_back_btn = tk.Button(self.main_frame, text="Go Back").grid(

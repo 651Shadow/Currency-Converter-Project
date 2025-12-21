@@ -2,14 +2,17 @@ import tkinter as tk
 from tkinter import ttk
 
 from backend.converters.data_unit import convert_data_unit
+from frontend.styles import styling
 
 
 class DataConverter:
     def __init__(self):
         self.root = tk.Tk()
-        self.root.minsize(500, 3)
 
+        self.root.minsize(500, 375)
         self.root.title("Data Converter")
+
+        self.styling(self.root)
 
         self.build_ui()
 
@@ -61,7 +64,10 @@ class DataConverter:
 
         # Convert button
         self.convert_button = ttk.Button(
-            self.main_frame, text="Convert", command=self.convert
+            self.main_frame,
+            text="Convert",
+            style="Accent.TButton",
+            command=self.convert,
         ).grid(row=4, column=1, padx=10, pady=15, sticky="ew")
 
         self.go_back_button = ttk.Button(self.main_frame, text="Go Back").grid(

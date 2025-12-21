@@ -1,13 +1,17 @@
 import tkinter as tk
 from tkinter import ttk
 from backend.converters.time import convert_time
+from frontend.styles import styling
 
 
 class TimeConverter:
     def __init__(self):
         self.root = tk.Tk()
+
         self.root.title("Time Converter")
         self.root.minsize(500, 375)
+
+        styling(self.root)
 
         self.build_ui()
 
@@ -30,6 +34,7 @@ class TimeConverter:
             row=0, column=0, padx=5, pady=(10, 20), sticky="w"
         )
         self.amount_entry = ttk.Entry(self.main_frame)
+
         self.amount_entry.grid(row=0, column=1, padx=5, pady=5, sticky="ew")
 
         # The from time conversion
@@ -59,9 +64,12 @@ class TimeConverter:
         ttk.Button(self.main_frame, text="Go Back").grid(
             row=4, column=0, padx=10, pady=15, sticky="ew"
         )
-        ttk.Button(self.main_frame, text="Convert Time", command=self.convert).grid(
-            row=4, column=1, padx=10, pady=15, sticky="ew"
-        )
+        ttk.Button(
+            self.main_frame,
+            text="Convert Time",
+            style="Accent.TButton",
+            command=self.convert,
+        ).grid(row=4, column=1, padx=10, pady=15, sticky="ew")
 
         for row in range(4):
             self.main_frame.rowconfigure(row, weight=1)

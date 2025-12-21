@@ -1,15 +1,20 @@
 import tkinter as tk
 from tkinter import ttk
 from backend.converters.discount import calc_discount
+from frontend.styles import styling
 
 
 class DiscountConverter:
     def __init__(self):
         self.root = tk.Tk()
+
         self.root.title("Discount Calculator")
         self.root.minsize(500, 375)
 
+        styling(self.root)
+
         self.build_ui()
+
         self.root.mainloop()
 
     def build_ui(self):
@@ -51,6 +56,7 @@ class DiscountConverter:
         ttk.Button(
             self.main_frame,
             text="Calculate Discount",
+            style="Accent.TButton",
             command=self.convert,
         ).grid(row=3, column=1, padx=10, pady=15, sticky="ew")
 
