@@ -57,7 +57,7 @@ class DiscountConverter:
         self.answer = ttk.Label(
             self.main_frame, text="Final Length --> ", font=("Tahoma", 12)
         )
-        self.answer.grid(row=3, column=0, padx=5, pady=5, sticky="nsew")
+        self.answer.grid(row=3, column=0, columnspan=2, padx=5, pady=5, sticky="nsew")
 
         # Convert & GO back buttons
         ttk.Button(self.main_frame, text="Go Back").grid(

@@ -6,14 +6,10 @@ from backend.converters.currency import convert_currency
 
 
 class CurrencyConverter:
-    def __init__(self):
-        self.root = tk.Tk()
-        self.root.title("Currency Converter")
-        self.root.minsize(500, 375)
+    def __init__(self, root):
+        self.root = root
 
         self.build_ui()
-
-        self.root.mainloop()
 
     def build_ui(self):
 
@@ -101,5 +97,5 @@ class CurrencyConverter:
         self.answer_label.config(text=f"Your Answer --> {result} {to_currency}")
 
 
-if __name__ == "__main__":
-    app = CurrencyConverter()
+# if __name__ == "__main__":
+#     app = CurrencyConverter()

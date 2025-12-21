@@ -68,7 +68,9 @@ class SpeedConverter:
         self.answer_label = ttk.Label(
             self.main_frame, text="Speed result will appear here --> "
         )
-        self.answer_label.grid(row=3, column=0, padx=5, pady=5, sticky="w")
+        self.answer_label.grid(
+            row=3, column=0, columnspan=2, padx=5, pady=5, sticky="w"
+        )
 
         self.convert_btn = ttk.Button(
             self.main_frame, text="Calculate", command=self.convert

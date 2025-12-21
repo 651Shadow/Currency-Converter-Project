@@ -33,7 +33,9 @@ class DataConverter:
             row=0, column=0, padx=5, pady=(10, 20), sticky="w"
         )
         self.amount_entry = ttk.Entry(self.main_frame)
-        self.amount_entry.grid(row=0, column=1, padx=5, pady=5, sticky="ew")
+        self.amount_entry.grid(
+            row=0, column=1, columnspan=2, padx=5, pady=5, sticky="ew"
+        )
 
         # User Input unit to convert from
         ttk.Label(self.main_frame, text="From Unit").grid(
