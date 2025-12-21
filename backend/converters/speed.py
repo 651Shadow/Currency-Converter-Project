@@ -7,7 +7,13 @@ def speed_converter(value, from_unit, to_unit):
         "ft/s": 0.3048,
     }
 
-    from_mps = {"m/s": 1, "km/h": 3.6, "mph": 2.23694, "knot": 1.94384, "ft/s": 3.28084}
+    from_mps = {
+        "m/s": 1, 
+        "km/h": 3.6, 
+        "mph": 2.23694, 
+        "knot": 1.94384, 
+        "ft/s": 3.28084
+    }
 
     speed_in_mps = value * to_mps[from_unit]
     result = speed_in_mps * from_mps[to_unit]
