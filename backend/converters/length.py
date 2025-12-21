@@ -1,9 +1,3 @@
-# Placeholder module for the Conversion Calculator project.
-<<<<<<< HEAD
-# Conversion 
-=======
-# Conversion
->>>>>>> 84b446c915193bfeaaae222e9e22e84a975616cd
 CONVERSION_FACTORS = {
     "m": 1,
     "km": 0.001,
