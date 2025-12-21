@@ -5,19 +5,6 @@ def text_to_binary(text):
     return binary_result
 
 
-<<<<<<< HEAD
-def binary_to_text(binary_str):
-    # Splitting the binary string into chunks of 8 bits
-    chars = [binary_str[i : i + 8] for i in range(0, len(binary_str), 8)]
-
-    text_result = "".join(chr(int(char, 2)) for char in chars)
-    print(text_result)
-
-    return text_result
-
-
-=======
->>>>>>> cea8163 (edit: removing convert binary to text from backend)
 if __name__ == "__main__":
     input_text = "Hel73lo"
     binary_output = text_to_binary(input_text)
