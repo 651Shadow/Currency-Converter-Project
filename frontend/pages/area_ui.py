@@ -4,6 +4,7 @@ from tkinter import ttk
 from backend.converters.area import convert_area
 from frontend.constants.data_constants import AREAS
 
+
 from frontend.styles import styling
 
 
@@ -71,7 +72,7 @@ class AreaConverter:
         )
 
         # Convert & GO back buttons
-        ttk.Button(self.main_frame, text="Go Back").grid(
+        ttk.Button(self.main_frame, command=self.go_back, text="Go Back").grid(
             row=4, column=0, padx=10, pady=15, sticky="ew"
         )
         ttk.Button(
@@ -106,6 +107,13 @@ class AreaConverter:
         result = convert_area(amount, from_area, to_area)
 
         self.answer_label.config(text=f"Your Answer --> {result} {to_area}")
+
+    def go_back(self):
+        from frontend.gui_main import App
+
+        self.root.destroy()
+
+        App(tk.Tk())
 
 
 if __name__ == "__main__":

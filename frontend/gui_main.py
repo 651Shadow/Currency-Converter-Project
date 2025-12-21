@@ -5,14 +5,14 @@ from tkinter import ttk
 from frontend.converter_frames import Converter_frames
 from frontend.styles import styling
 
+
 class App:
-    def __init__(self):
-        self.root = tk.Tk()
+    def __init__(self, root):
+        self.root = root
 
         styling(self.root)
         Converter_frames(self.root)
 
-        self.root.mainloop()
 
 if __name__ == "__main__":
     App()
