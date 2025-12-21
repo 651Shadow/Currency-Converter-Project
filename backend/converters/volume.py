@@ -14,14 +14,15 @@ CONVERSIONS_TO_LITER = {
 
 
 def convert_volume(value: float, base: str, to: str):
-
     base = base.lower()
     to = to.lower()
+
     if base not in CONVERSIONS_TO_LITER or to not in CONVERSIONS_TO_LITER:
         raise ValueError("Unsupported unit for conversion")
 
     liter_value = value / CONVERSIONS_TO_LITER[base]
     target_factor = CONVERSIONS_TO_LITER[to]
+
     final_value = liter_value * target_factor
 
     return final_value
