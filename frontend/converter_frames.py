@@ -3,7 +3,7 @@ from tkinter import ttk
 
 from frontend.pages.currency_ui import CurrencyConverter
 
-# from frontend.pages.mass_ui import MassConverter
+from frontend.pages.mass_ui import MassConverter
 from frontend.pages.area_ui import AreaConverter
 from frontend.pages.length_ui import LengthConverter
 from frontend.pages.time_ui import TimeConverter
@@ -20,7 +20,7 @@ from frontend.pages.binary_ui import BinaryConverter
 # Getting all buttons with their class to implement layout
 buttons = {
     "Currency": CurrencyConverter,
-    "Mass": None,
+    "Mass": MassConverter,
     "Area": AreaConverter,
     "Length": LengthConverter,
     "Time": TimeConverter,
