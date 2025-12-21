@@ -2,6 +2,7 @@ import tkinter as tk
 from tkinter import ttk
 from frontend.styles import styling
 
+from backend.converters.numeral import numeral_converter
 from frontend.constants.data_constants import NUMERIAL_VALUES
 
 
@@ -26,13 +27,13 @@ class NumerialConverter:
         self.main_frame = ttk.Frame(self.root, padding=20)
         self.main_frame.pack(fill="both", expand=True)
 
-        ttk.Label(self.main_frame, text="Enter Number").grid(
+        ttk.Label(self.main_frame, text="Enter Decimal Number").grid(
             row=0, column=0, padx=5, pady=(10, 20), sticky="w"
         )
         self.num_entry = ttk.Entry(self.main_frame)
         self.num_entry.grid(row=0, column=1, columnspan=2, padx=5, pady=5, sticky="ew")
 
-        ttk.Label(self.main_frame, text="From Base").grid(
+        ttk.Label(self.main_frame, text="Convert to").grid(
             row=1, column=0, padx=5, pady=(10, 20), sticky="w"
         )
         self.convert_from = ttk.Combobox(
@@ -40,15 +41,6 @@ class NumerialConverter:
         )
         self.convert_from.grid(row=1, column=1, padx=5, pady=5, sticky="ew")
         self.convert_from.current(0)
-
-        ttk.Label(self.main_frame, text="To Base").grid(
-            row=2, column=0, padx=5, pady=(10, 20), sticky="w"
-        )
-        self.convert_to = ttk.Combobox(
-            self.main_frame, values=NUMERIAL_VALUES, state="readonly"
-        )
-        self.convert_to.grid(row=2, column=1, padx=5, pady=5, sticky="ew")
-        self.convert_to.current(3)
 
         self.result_label = ttk.Label(
             self.main_frame,
@@ -76,20 +68,21 @@ class NumerialConverter:
     def get_user_input(self):
         value = self.num_entry.get().strip()
         base_from = self.convert_from.get()
-        base_to = self.convert_to.get()
 
-        return value, base_from, base_to
+        return value, base_from
 
     def convert(self):
-        value_str, base_from, base_to = self.get_user_input()
+        value_str, base_from = self.get_user_input()
 
         if not value_str.isdigit():
             self.result_label.config(text="Invalid input for selected base!")
             return
 
-        value = float(value_str)
+        value = int(value_str)
 
-        self.result_label.config("Invalid input, Try again")
+        result = numeral_converter(value, base_from)
+
+        self.result_label.config(text=f"Answer --> {result}")
 
     def go_back(self):
         from frontend.gui_main import App
