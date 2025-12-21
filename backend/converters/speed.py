@@ -21,6 +21,8 @@ def speed_converter(value, from_unit, to_unit):
     return result
 
 
-print(speed_converter(100, "km/h", "m/s"))
-print(speed_converter(60, "mph", "km/h"))
-print(speed_converter(10, "m/s", "ft/s"))
+
+if __name__ == "__main__":
+    print(speed_converter(100, "km/h", "m/s"))
+    print(speed_converter(60, "mph", "km/h"))
+    print(speed_converter(10, "m/s", "ft/s"))
