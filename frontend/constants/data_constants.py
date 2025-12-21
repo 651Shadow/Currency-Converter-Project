@@ -180,3 +180,5 @@ VOLUME_VALUES = ["ml", "l", "m3", "gal", "cup", "fl_oz", "qt", "cl", "cm3"]
 MASS_VALUES = ["kg", "g", "mg", "ton", "lb", "oz"]
 
 NUMERIAL_VALUES = ["bin", "hexa", "octa"]
+
+DATA_VALUES = ["B", "KB", "MB", "GB", "TB", "PB"]

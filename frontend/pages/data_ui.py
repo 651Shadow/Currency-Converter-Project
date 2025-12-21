@@ -2,6 +2,7 @@ import tkinter as tk
 from tkinter import ttk
 
 from backend.converters.data_unit import convert_data_unit
+from frontend.constants.data_constants import DATA_VALUES
 from frontend.styles import styling
 
 
@@ -19,7 +20,6 @@ class DataConverter:
         self.root.mainloop()
 
     def build_ui(self):
-        DATA = ["B", "KB", "MB", "GB", "TB", "PB"]
 
         self.label = ttk.Label(
             self.root,
@@ -44,7 +44,9 @@ class DataConverter:
         ttk.Label(self.main_frame, text="From Unit").grid(
             row=1, column=0, padx=5, pady=(10, 20), sticky="w"
         )
-        self.convert_from = ttk.Combobox(self.main_frame, values=DATA, state="readonly")
+        self.convert_from = ttk.Combobox(
+            self.main_frame, values=DATA_VALUES, state="readonly"
+        )
         self.convert_from.grid(row=1, column=1, padx=5, pady=5, sticky="ew")
         self.convert_from.current(0)
 
@@ -52,7 +54,9 @@ class DataConverter:
         ttk.Label(self.main_frame, text="To Unit").grid(
             row=2, column=0, padx=5, pady=(10, 20), sticky="w"
         )
-        self.convert_to = ttk.Combobox(self.main_frame, values=DATA, state="readonly")
+        self.convert_to = ttk.Combobox(
+            self.main_frame, values=DATA_VALUES, state="readonly"
+        )
         self.convert_to.grid(row=2, column=1, padx=5, pady=5, sticky="ew")
         self.convert_to.current(1)
 
