@@ -9,13 +9,12 @@ from frontend.pages.length_ui import LengthConverter
 from frontend.pages.time_ui import TimeConverter
 from frontend.pages.data_ui import DataConverter
 
-# from frontend.pages.volume_ui import VolumeConverter
+from frontend.pages.volume_ui import VolumeConverter
 from frontend.pages.temperature_ui import TemperatureConverter
 from frontend.pages.speed_ui import SpeedConverter
 from frontend.pages.discount_ui import DiscountConverter
 from frontend.pages.binary_ui import BinaryConverter
-
-# from frontend.pages.numerial_ui import NumerialConverter
+from frontend.pages.numerial_ui import NumerialConverter
 
 # Getting all buttons with their class to implement layout
 buttons = {
@@ -25,12 +24,12 @@ buttons = {
     "Length": LengthConverter,
     "Time": TimeConverter,
     "Data": DataConverter,
-    "Volume": None,
+    "Volume": VolumeConverter,
     "Temperature": TemperatureConverter,
     "Speed": SpeedConverter,
     "Discount Calculator": DiscountConverter,
     "Binary": BinaryConverter,
-    "Numerical Systems": None,
+    "Numerial Systems": NumerialConverter,
 }
 
 

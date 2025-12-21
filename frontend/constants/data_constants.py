@@ -169,8 +169,12 @@ CURRENCIES = [
 
 AREAS = ["sq_m", "sq_cm", "sq_mm", "sq_km", "sq_ft", "sq_in", "sq_yd", "sq_mile"]
 
-LENGTHS = ["km", "m", "cm", "mm", "ft", "inch"]
+LENGTHS = ["km", "m", "cm", "mm", "ft", "inch", "lightyear"]
 
 TEMP_VALUES = ["Celsius", "Fahrenheit", "Kelvin"]
 
 SPEED_VALUES = ["m/s", "km/h", "mph", "knot", "ft/s"]
+
+VOLUME_VALUES = ["ml", "l", "m3", "gal", "cup", "fl_oz", "qt", "cl", "cm3"]
+
+NUMERIAL_VALUES = ["bin", "hexa", "octa"]
