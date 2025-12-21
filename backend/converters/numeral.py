@@ -3,7 +3,7 @@ import numbersystem as nt
 conver = ["bin", "hexa", "octa"]
 
 
-def numeral_system(value: int, op: str):
+def numeral_converter(value: int, op: str):
 
     if op.lower() == conver[0].lower():
         return nt.decimalToBinary(value)

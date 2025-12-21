@@ -76,9 +76,9 @@ class SpeedConverter:
             command=self.convert,
         ).grid(row=4, column=1, padx=10, pady=15, sticky="ew")
 
-        self.go_back_btn = tk.Button(self.main_frame, text="Go Back").grid(
-            row=4, column=0, padx=10, pady=15, sticky="ew"
-        )
+        self.go_back_btn = tk.Button(
+            self.main_frame, command=self.go_back, text="Go Back"
+        ).grid(row=4, column=0, padx=10, pady=15, sticky="ew")
 
         for row in range(4):
             self.main_frame.rowconfigure(row, weight=1)
@@ -104,6 +104,12 @@ class SpeedConverter:
         result = speed_converter(distance, time_unit, conversion_speed_unit)
 
         self.answer_label.config(text=f"Answer --> {result} {conversion_speed_unit}")
+
+    def go_back(self):
+        from frontend.gui_main import App
+
+        self.root.destroy()
+        App(tk.Tk())
 
 
 if __name__ == "__main__":

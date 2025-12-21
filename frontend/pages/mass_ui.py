@@ -3,6 +3,7 @@ from tkinter import ttk
 
 from backend.converters.mass import convert_mass
 from frontend.styles import styling
+from frontend.constants.data_constants import MASS_VALUES
 
 
 class MassConverter:
@@ -19,7 +20,6 @@ class MassConverter:
         self.root.mainloop()
 
     def build_ui(self):
-        DATA = ["B", "KB", "MB", "GB", "TB", "PB"]
 
         self.label = ttk.Label(
             self.root,
@@ -42,7 +42,9 @@ class MassConverter:
         ttk.Label(self.main_frame, text="From Unit").grid(
             row=1, column=0, padx=5, pady=(10, 20), sticky="w"
         )
-        self.convert_from = ttk.Combobox(self.main_frame, values=DATA, state="readonly")
+        self.convert_from = ttk.Combobox(
+            self.main_frame, values=MASS_VALUES, state="readonly"
+        )
         self.convert_from.grid(row=1, column=1, padx=5, pady=5, sticky="ew")
         self.convert_from.current(0)
 
@@ -50,7 +52,9 @@ class MassConverter:
         ttk.Label(self.main_frame, text="To Unit").grid(
             row=2, column=0, padx=5, pady=(10, 20), sticky="w"
         )
-        self.convert_to = ttk.Combobox(self.main_frame, values=DATA, state="readonly")
+        self.convert_to = ttk.Combobox(
+            self.main_frame, values=MASS_VALUES, state="readonly"
+        )
         self.convert_to.grid(row=2, column=1, padx=5, pady=5, sticky="ew")
         self.convert_to.current(1)
 

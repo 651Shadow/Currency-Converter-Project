@@ -70,9 +70,9 @@ class DataConverter:
             command=self.convert,
         ).grid(row=4, column=1, padx=10, pady=15, sticky="ew")
 
-        self.go_back_button = ttk.Button(self.main_frame, text="Go Back").grid(
-            row=4, column=0, padx=10, pady=15, sticky="ew"
-        )
+        self.go_back_button = ttk.Button(
+            self.main_frame, text="Go Back", command=self.go_back
+        ).grid(row=4, column=0, padx=10, pady=15, sticky="ew")
 
         for r in range(4):
             self.main_frame.rowconfigure(r, weight=1)
@@ -98,6 +98,12 @@ class DataConverter:
 
         result = convert_data_unit(amount, from_input, to_input)
         self.result_label.config(text=f"Your result: {result:.2f} {to_input} ")
+
+    def go_back(self):
+        from frontend.gui_main import App
+
+        self.root.destroy()
+        App(tk.Tk())
 
 
 if __name__ == "__main__":

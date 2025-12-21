@@ -61,7 +61,7 @@ class TimeConverter:
         self.answer.grid(row=3, column=0, columnspan=2, padx=5, pady=5, sticky="nsew")
 
         # The Entry and backward buttons
-        ttk.Button(self.main_frame, text="Go Back").grid(
+        ttk.Button(self.main_frame, command=self.go_back, text="Go Back").grid(
             row=4, column=0, padx=10, pady=15, sticky="ew"
         )
         ttk.Button(
@@ -93,6 +93,12 @@ class TimeConverter:
         result = convert_time(amount, from_unit, to_unit)
 
         self.answer.config(text=f"Time converted --> {result} {to_unit}")
+
+    def go_back(self):
+        from frontend.gui_main import App
+
+        self.root.destroy()
+        App(tk.Tk())
 
 
 if __name__ == "__main__":

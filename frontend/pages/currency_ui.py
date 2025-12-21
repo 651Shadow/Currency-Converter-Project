@@ -76,7 +76,7 @@ class CurrencyConverter:
             command=self.convert,
         ).grid(row=4, column=1, padx=10, pady=15, sticky="ew")
 
-        ttk.Button(self.main_frame, text="Go Back").grid(
+        ttk.Button(self.main_frame, text="Go Back", command=self.go_back).grid(
             row=4, column=0, padx=10, pady=15, sticky="ew"
         )
 
@@ -106,6 +106,12 @@ class CurrencyConverter:
         result = convert_currency(amount, from_currency, to_currency)
 
         self.answer_label.config(text=f"Your Answer --> {result} {to_currency}")
+
+    def go_back(self):
+        from frontend.gui_main import App
+
+        self.root.destroy()
+        App(tk.Tk())
 
 
 # if __name__ == "__main__":

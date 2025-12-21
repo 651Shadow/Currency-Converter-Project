@@ -50,7 +50,7 @@ class DiscountConverter:
         self.answer.grid(row=2, column=0, columnspan=2, padx=5, pady=5, sticky="nsew")
 
         # Convert & GO back buttons
-        ttk.Button(self.main_frame, text="Go Back").grid(
+        ttk.Button(self.main_frame, text="Go Back", command=self.go_back).grid(
             row=3, column=0, padx=10, pady=15, sticky="ew"
         )
         ttk.Button(
@@ -104,9 +104,13 @@ class DiscountConverter:
 
         discounted_price = calc_discount(price, discount_percent)
 
-        self.answer.config(
-            text=f"Your Answer: {discounted_price: .2f} {discount_percent}"
-        )
+        self.answer.config(text=f"Your Answer: {discounted_price: .2f} %")
+
+    def go_back(self):
+        from frontend.gui_main import App
+
+        self.root.destroy()
+        App(tk.Tk())
 
 
 if __name__ == "__main__":

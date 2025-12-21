@@ -65,7 +65,7 @@ class LengthConverter:
         self.answer.grid(row=3, column=0, columnspan=2, padx=5, pady=5, sticky="nsew")
 
         # Convert & GO back buttons
-        ttk.Button(self.main_frame, text="Go Back").grid(
+        ttk.Button(self.main_frame, text="Go Back", command=self.go_back).grid(
             row=4, column=0, padx=10, pady=15, sticky="ew"
         )
 
@@ -98,11 +98,15 @@ class LengthConverter:
 
         length = float(length_str)
 
-        converted_length = (length, unit, conversion_unit)
+        converted_length = convert_length(length, unit, conversion_unit)
 
-        self.answer.config(
-            text=f"Final Length: {converted_length: .2f} {conversion_unit}"
-        )
+        self.answer.config(text=f"Final Length: {converted_length} {conversion_unit}")
+
+    def go_back(self):
+        from frontend.gui_main import App
+
+        self.root.destroy()
+        App(tk.Tk())
 
 
 if __name__ == "__main__":

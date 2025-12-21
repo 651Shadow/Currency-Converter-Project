@@ -76,9 +76,9 @@ class TemperatureConverter:
             command=self.convert,
         ).grid(row=4, column=1, padx=10, pady=15, sticky="ew")
 
-        self.go_back_btn = tk.Button(self.main_frame, text="Go Back").grid(
-            row=4, column=0, padx=10, pady=15, sticky="ew"
-        )
+        self.go_back_btn = tk.Button(
+            self.main_frame, command=self.go_back, text="Go Back"
+        ).grid(row=4, column=0, padx=10, pady=15, sticky="ew")
 
         for row in range(4):
             self.main_frame.rowconfigure(row, weight=1)
@@ -96,7 +96,7 @@ class TemperatureConverter:
         temp_str, unit, conversion_unit = self.get_user_input()
 
         if not temp_str.isdigit():
-            self.answer_label.config(text="Invalid price input, Numbers ONLY!")
+            self.answer_label.config(text="Invalid input, Numbers ONLY!")
             return
 
         temp = float(temp_str)
@@ -104,6 +104,12 @@ class TemperatureConverter:
         result = Temperature_convert(temp, unit, conversion_unit)
 
         self.answer_label.config(text=f"Answer --> {result} {conversion_unit}")
+
+    def go_back(self):
+        from frontend.gui_main import App
+
+        self.root.destroy()
+        App(tk.Tk())
 
 
 if __name__ == "__main__":

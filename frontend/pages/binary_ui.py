@@ -55,10 +55,9 @@ class BinaryConverter:
             command=self.convert,
         ).grid(row=2, column=1, padx=10, pady=15, sticky="ew")
 
-        ttk.Button(
-            self.main_frame,
-            text="Go Back",
-        ).grid(row=2, column=0, padx=10, pady=15, sticky="ew")
+        ttk.Button(self.main_frame, text="Go Back", command=self.go_back).grid(
+            row=2, column=0, padx=10, pady=15, sticky="ew"
+        )
 
         # Grid Stretch
         for row in range(2):
@@ -81,6 +80,12 @@ class BinaryConverter:
         result = text_to_binary(text)
 
         self.answer_label.config(text=f"Answer --> {result}")
+
+    def go_back(self):
+        from frontend.gui_main import App
+
+        self.root.destroy()
+        App(tk.Tk())
 
 
 if __name__ == "__main__":
