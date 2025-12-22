@@ -32,7 +32,7 @@ class SpeedConverter:
         self.main_frame.pack(fill="both", expand=True)
 
         # Distance entry handler and Create input fields
-        ttk.Label(self.main_frame, text="Enter distance").grid(
+        ttk.Label(self.main_frame, text="Enter Speed").grid(
             row=0, column=0, padx=5, pady=(10, 20), sticky="w"
         )
 
