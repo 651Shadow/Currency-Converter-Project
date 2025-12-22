@@ -11,12 +11,11 @@ TIME_PER_HOUR = {
 
 
 def convert_time(value: float, from_unit: str, to_unit: str):
+    from_unit = from_unit.lower()
+    to_unit = to_unit.lower()
 
     if from_unit not in TIME_PER_HOUR or to_unit not in TIME_PER_HOUR:
         raise ValueError(f"Unsupported from_unit: {from_unit}")
-
-    from_unit = from_unit.lower()
-    to_unit = to_unit.lower()
 
     # Convert the input value to hours then convert to the target unit
     hours = value / TIME_PER_HOUR[from_unit]
@@ -27,5 +26,5 @@ def convert_time(value: float, from_unit: str, to_unit: str):
 
 if __name__ == "__main__":
     print(convert_time(120, "minute", "hour"))
-    print(convert_time(2, "days", "hour"))
+    print(convert_time(2, "day", "hour"))
     print(convert_time(3600, "second", "hour"))

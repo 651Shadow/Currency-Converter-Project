@@ -1,5 +1,3 @@
-import math
-
 CONVERSIONS_TO_KG = {
     "kg": 1,
     "g": 1000,

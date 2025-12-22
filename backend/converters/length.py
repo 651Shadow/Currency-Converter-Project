@@ -12,6 +12,8 @@ CONVERSION_FACTORS = {
 
 
 def convert_length(value, from_unit, to_unit):
+    from_unit = from_unit.lower()
+    to_unit = to_unit.lower()
     if from_unit not in CONVERSION_FACTORS:
         return f"Error: Unknown unit '{from_unit}'"
 
