@@ -101,6 +101,7 @@ class CurrencyConverter:
         if not amount_str.isdigit():
             self.answer_label.config(text="Invalid Amount, Only Digits")
             return
+        
 
         amount = float(amount_str)
         result = convert_currency(amount, from_currency, to_currency)
