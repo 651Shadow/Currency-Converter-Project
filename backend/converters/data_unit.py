@@ -9,11 +9,12 @@ DATA_IN_BYTES = {
 
 
 def convert_data_unit(value: float, from_unit: str, to_unit: str):
+    from_unit = from_unit.upper()
+    to_unit = to_unit.upper()
+
     if from_unit not in DATA_IN_BYTES or to_unit not in DATA_IN_BYTES:
         raise ValueError(f"Unsupported from_unit: {from_unit} or to_unit: {to_unit}")
 
-    from_unit = from_unit.upper()
-    to_unit = to_unit.upper()
 
     # Convert the input value to bytes then convert to the target unit
     bytes_value = value * DATA_IN_BYTES[from_unit]
