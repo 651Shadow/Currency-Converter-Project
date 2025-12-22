@@ -9,6 +9,7 @@ from frontend.constants.data_constants import NUMERIAL_VALUES
 class NumerialConverter:
     def __init__(self):
         self.root = tk.Tk()
+
         self.root.minsize(500, 380)
         self.root.title("Numerical Converter")
 
@@ -47,7 +48,9 @@ class NumerialConverter:
             text="Your result will appear here -->",
             font=("Tahoma", 12),
         )
-        self.result_label.grid(row=3, column=0, padx=5, pady=(10, 20), sticky="w")
+        self.result_label.grid(
+            row=3, column=0, columnspan=2, padx=5, pady=(10, 20), sticky="w"
+        )
 
         ttk.Button(
             self.main_frame,
