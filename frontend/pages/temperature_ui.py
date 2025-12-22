@@ -19,7 +19,6 @@ class TemperatureConverter:
         self.root.mainloop()
 
     def build_ui(self):
-        # Label of the page
         self.page_label = ttk.Label(
             self.root,
             padding=20,
@@ -31,7 +30,6 @@ class TemperatureConverter:
         self.main_frame = ttk.Frame(self.root, padding=20)
         self.main_frame.pack(fill="both", expand=True)
 
-        # Temperature entry handler and Create input fields
         ttk.Label(self.main_frame, text="Enter temperature").grid(
             row=0, column=0, padx=5, pady=(10, 20), sticky="w"
         )
@@ -39,7 +37,6 @@ class TemperatureConverter:
         self.temp_entry = ttk.Entry(self.main_frame)
         self.temp_entry.grid(row=0, column=1, padx=5, pady=5, sticky="ew")
 
-        # Create a label for the unit and drop-down menu
         ttk.Label(self.main_frame, text="Select unit").grid(
             row=1, column=0, padx=5, pady=(10, 20), sticky="w"
         )
@@ -50,7 +47,6 @@ class TemperatureConverter:
         self.unit_entry.grid(row=1, column=1, padx=5, pady=5, sticky="ew")
         self.unit_entry.current(1)
 
-        # Create a label for the conversion to unit and drop-down menu
         ttk.Label(self.main_frame, text="Convert to unit").grid(
             row=2, column=0, padx=5, pady=(10, 20), sticky="w"
         )
@@ -61,7 +57,6 @@ class TemperatureConverter:
         self.conversion_unit.grid(row=2, column=1, padx=5, pady=5, sticky="ew")
         self.conversion_unit.current(0)
 
-        # Answer Label
         self.answer_label = ttk.Label(
             self.main_frame, text="Temperature will go here --> "
         )

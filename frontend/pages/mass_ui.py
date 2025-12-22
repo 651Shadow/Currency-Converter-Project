@@ -31,14 +31,12 @@ class MassConverter:
         self.main_frame = ttk.Frame(self.root, padding=20)
         self.main_frame.pack(fill="both", expand=True)
 
-        # User Input number to convert
         ttk.Label(self.main_frame, text="Enter Data Size").grid(
             row=0, column=0, padx=5, pady=(10, 20), sticky="w"
         )
         self.mass_entry = ttk.Entry(self.main_frame)
         self.mass_entry.grid(row=0, column=1, columnspan=2, padx=5, pady=5, sticky="ew")
 
-        # User Input unit to convert from
         ttk.Label(self.main_frame, text="From Unit").grid(
             row=1, column=0, padx=5, pady=(10, 20), sticky="w"
         )
@@ -48,7 +46,6 @@ class MassConverter:
         self.convert_from.grid(row=1, column=1, padx=5, pady=5, sticky="ew")
         self.convert_from.current(0)
 
-        # User Input unit to convert to
         ttk.Label(self.main_frame, text="To Unit").grid(
             row=2, column=0, padx=5, pady=(10, 20), sticky="w"
         )
@@ -58,7 +55,6 @@ class MassConverter:
         self.convert_to.grid(row=2, column=1, padx=5, pady=5, sticky="ew")
         self.convert_to.current(1)
 
-        # Result label
         self.result_label = ttk.Label(
             self.main_frame, text="Your result will be here --> ", font=("Tahoma", 12)
         )
@@ -66,7 +62,6 @@ class MassConverter:
             row=3, column=0, columnspan=2, padx=5, pady=(10, 20), sticky="w"
         )
 
-        # Convert button
         self.convert_button = ttk.Button(
             self.main_frame,
             text="Convert",
@@ -93,7 +88,6 @@ class MassConverter:
     def convert(self):
         amount_str, from_input, to_input = self.get_user_input()
 
-        # Implement conversion logic here
         if not amount_str.isdigit():
             self.result_label.config(text="Invalid input, Try again")
             return

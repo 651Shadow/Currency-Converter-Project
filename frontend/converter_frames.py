@@ -2,7 +2,6 @@ import tkinter as tk
 from tkinter import ttk
 
 from frontend.pages.currency_ui import CurrencyConverter
-
 from frontend.pages.mass_ui import MassConverter
 from frontend.pages.area_ui import AreaConverter
 from frontend.pages.length_ui import LengthConverter

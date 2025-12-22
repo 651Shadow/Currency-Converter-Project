@@ -1,6 +1,7 @@
 import tkinter as tk
 from tkinter import ttk
 from backend.converters.time import convert_time
+from frontend.constants.data_constants import TIME_UNITS
 from frontend.styles import styling
 
 
@@ -18,7 +19,6 @@ class TimeConverter:
         self.root.mainloop()
 
     def build_ui(self):
-        UNITS = ["second", "minute", "hour", "day", "week", "month", "year"]
 
         self.label = ttk.Label(
             self.root,
@@ -33,16 +33,16 @@ class TimeConverter:
         ttk.Label(self.main_frame, text="Time Calculator").grid(
             row=0, column=0, padx=5, pady=(10, 20), sticky="w"
         )
-        self.amount_entry = ttk.Entry(self.main_frame)
+        self.time_entry = ttk.Entry(self.main_frame)
 
-        self.amount_entry.grid(row=0, column=1, padx=5, pady=5, sticky="ew")
+        self.time_entry.grid(row=0, column=1, padx=5, pady=5, sticky="ew")
 
         # The from time conversion
         ttk.Label(self.main_frame, text="Enter From time").grid(
             row=1, column=0, padx=5, pady=(10, 20), sticky="w"
         )
 
-        self.from_box = ttk.Combobox(self.main_frame, values=UNITS, state="readonly")
+        self.from_box = ttk.Combobox(self.main_frame, values=TIME_UNITS, state="readonly")
         self.from_box.grid(row=1, column=1, padx=5, pady=5, sticky="ew")
         self.from_box.current(0)
 
@@ -51,7 +51,7 @@ class TimeConverter:
             row=2, column=0, padx=5, pady=(10, 20), sticky="w"
         )
 
-        self.to_box = ttk.Combobox(self.main_frame, values=UNITS, state="readonly")
+        self.to_box = ttk.Combobox(self.main_frame, values=TIME_UNITS, state="readonly")
         self.to_box.grid(row=2, column=1, padx=5, pady=5, sticky="ew")
         self.to_box.current(1)
 
@@ -79,16 +79,16 @@ class TimeConverter:
             self.main_frame.columnconfigure(col, weight=1)
 
     def get_user_input(self):
-        amount = self.amount_entry.get().strip()
+        time = self.time_entry.get().strip()
         from_unit = self.from_box.get()
         to_unit = self.to_box.get()
 
-        return amount, from_unit, to_unit
+        return time, from_unit, to_unit
 
     def convert(self):
-        amount_str, from_unit, to_unit = self.get_user_input()
+        time_str, from_unit, to_unit = self.get_user_input()
 
-        if not amount_str.isdigit():
+        if not time_str.isdigit():
             self.answer_label.config(text="Invalid input. Please enter a valid number.")
             return
 
@@ -98,8 +98,8 @@ class TimeConverter:
             )
             return
 
-        amount = float(amount_str)
-        result = convert_time(amount, from_unit, to_unit)
+        time = float(time_str)
+        result = convert_time(time, from_unit, to_unit)
 
         self.answer_label.config(text=f"Time converted --> {result} {to_unit}")
 

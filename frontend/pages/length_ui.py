@@ -29,16 +29,12 @@ class LengthConverter:
         self.main_frame = ttk.Frame(self.root, padding=20)
         self.main_frame.pack(fill="both", expand=True)
 
-        # UI elements
-
-        # Length entry handler
         ttk.Label(self.main_frame, text="Enter length").grid(
             row=0, column=0, padx=5, pady=(10, 20), sticky="w"
         )
         self.length_entry = ttk.Entry(self.main_frame)
         self.length_entry.grid(row=0, column=1, padx=5, pady=5, sticky="ew")
 
-        # The length data type drop-down menu
         ttk.Label(self.main_frame, text="Enter the number unit").grid(
             row=1, column=0, padx=5, pady=(10, 20), sticky="w"
         )
@@ -48,7 +44,6 @@ class LengthConverter:
         self.unit_entry.grid(row=1, column=1, padx=5, pady=5, sticky="ew")
         self.unit_entry.current(0)
 
-        # The conversion unit drop-down menu
         ttk.Label(self.main_frame, text="Enter the conversion unit").grid(
             row=2, column=0, padx=5, pady=(10, 20), sticky="w"
         )
@@ -58,20 +53,18 @@ class LengthConverter:
         self.conversion_unit_entry.grid(row=2, column=1, padx=5, pady=5, sticky="ew")
         self.conversion_unit_entry.current(1)
 
-        # Answer label
         self.answer = ttk.Label(
             self.main_frame, text="Final Length --> ", font=("Tahoma", 12)
         )
         self.answer.grid(row=3, column=0, columnspan=2, padx=5, pady=5, sticky="nsew")
 
-        # Convert & GO back buttons
         ttk.Button(self.main_frame, text="Go Back", command=self.go_back).grid(
             row=4, column=0, padx=10, pady=15, sticky="ew"
         )
 
         ttk.Button(
             self.main_frame,
-            text="Calculate Length",
+            text="Convert",
             style="Accent.TButton",
             command=self.convert,
         ).grid(row=4, column=1, padx=10, pady=15, sticky="ew")
@@ -81,7 +74,6 @@ class LengthConverter:
         for col in range(2):
             self.main_frame.columnconfigure(col, weight=1)
 
-    # Getting values entered from the user
     def get_user_input(self):
         length = self.length_entry.get().strip()
         unit = self.unit_entry.get().strip()

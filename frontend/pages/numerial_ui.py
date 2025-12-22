@@ -20,7 +20,7 @@ class NumerialConverter:
     def build_ui(self):
         ttk.Label(
             self.root,
-            text="Numerical Converter",
+            text="Numerial Converter",
             padding=20,
             font=("Tahoma", 20, "bold"),
         ).pack()
@@ -37,11 +37,11 @@ class NumerialConverter:
         ttk.Label(self.main_frame, text="Convert to").grid(
             row=1, column=0, padx=5, pady=(10, 20), sticky="w"
         )
-        self.convert_from = ttk.Combobox(
+        self.converstion_unit = ttk.Combobox(
             self.main_frame, values=NUMERIAL_VALUES, state="readonly"
         )
-        self.convert_from.grid(row=1, column=1, padx=5, pady=5, sticky="ew")
-        self.convert_from.current(0)
+        self.converstion_unit.grid(row=1, column=1, padx=5, pady=5, sticky="ew")
+        self.converstion_unit.current(0)
 
         self.result_label = ttk.Label(
             self.main_frame,
@@ -70,12 +70,12 @@ class NumerialConverter:
 
     def get_user_input(self):
         value = self.num_entry.get().strip()
-        base_from = self.convert_from.get()
+        base_conversion = self.converstion_unit.get()
 
-        return value, base_from
+        return value, base_conversion
 
     def convert(self):
-        value_str, base_from = self.get_user_input()
+        value_str, base_conversion = self.get_user_input()
 
         if not value_str.isdigit():
             self.result_label.config(text="Invalid input for selected base!")
@@ -83,7 +83,7 @@ class NumerialConverter:
 
         value = int(value_str)
 
-        result = numeral_converter(value, base_from)
+        result = numeral_converter(value, base_conversion)
 
         self.result_label.config(text=f"Answer --> {result}")
 

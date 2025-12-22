@@ -18,7 +18,6 @@ class BinaryConverter:
         self.root.mainloop()
 
     def build_ui(self):
-        # Add Ui elements here
 
         self.page_label = ttk.Label(
             self.root,
@@ -31,7 +30,6 @@ class BinaryConverter:
         self.main_frame = ttk.Frame(self.root, padding=20)
         self.main_frame.pack(fill="both", expand=True)
 
-        # Input field and label
         ttk.Label(self.main_frame, text="Enter text / binary").grid(
             row=0, column=0, padx=5, pady=(10, 20), sticky="w"
         )
@@ -39,7 +37,6 @@ class BinaryConverter:
         self.input_entry = ttk.Entry(self.main_frame)
         self.input_entry.grid(row=0, column=1, padx=5, pady=5, sticky="ew")
 
-        # Answer Label
         self.answer_label = ttk.Label(
             self.main_frame, text="Result will appear here --> "
         )
@@ -47,7 +44,6 @@ class BinaryConverter:
             row=1, columnspan=2, column=0, padx=5, pady=5, sticky="w"
         )
 
-        # Convert and Go Back Buttons
         ttk.Button(
             self.main_frame,
             text="Convert",
@@ -59,7 +55,6 @@ class BinaryConverter:
             row=2, column=0, padx=10, pady=15, sticky="ew"
         )
 
-        # Grid Stretch
         for row in range(2):
             self.main_frame.rowconfigure(row, weight=1)
         for col in range(2):

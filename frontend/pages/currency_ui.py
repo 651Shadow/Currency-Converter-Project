@@ -31,16 +31,12 @@ class CurrencyConverter:
         self.main_frame = ttk.Frame(self.root, padding=20)
         self.main_frame.pack(fill="both", expand=True)
 
-        # Add UI elements here
-
-        # Price entry handler
         ttk.Label(self.main_frame, text="Enter Amount").grid(
             row=0, column=0, sticky="w"
         )
         self.amount_entry = ttk.Entry(self.main_frame)
         self.amount_entry.grid(row=0, column=1, padx=5, pady=5, sticky="ew")
 
-        # Drop-down To Currency manu
         ttk.Label(self.main_frame, text="Select From Currency").grid(
             row=1, column=0, sticky="w"
         )
@@ -51,7 +47,6 @@ class CurrencyConverter:
         self.from_currency_combobox.grid(row=1, column=1, padx=5, pady=5, sticky="ew")
         self.from_currency_combobox.current(0)
 
-        # Drop-down To Currency menu
         ttk.Label(self.main_frame, text="Select To Currency").grid(
             row=2, column=0, sticky="w"
         )
@@ -62,13 +57,11 @@ class CurrencyConverter:
         self.to_currency_combobox.grid(row=2, column=1, padx=5, pady=5, sticky="ew")
         self.to_currency_combobox.current(1)
 
-        # Answer Label
         self.answer_label = ttk.Label(
             self.main_frame, text="Answer will appear here --> "
         )
         self.answer_label.grid(row=3, column=0, columnspan=2, sticky="ew")
 
-        # Convert & GO back buttons
         ttk.Button(
             self.main_frame,
             text="Convert",
@@ -80,13 +73,11 @@ class CurrencyConverter:
             row=4, column=0, padx=10, pady=15, sticky="ew"
         )
 
-        # Making rows and columns dynamic
         for r in range(4):
             self.main_frame.rowconfigure(r, weight=1)
         for c in range(2):
             self.main_frame.columnconfigure(c, weight=1)
 
-    # Getting all user inputs
     def get_user_input(self):
         amount = self.amount_entry.get()
         from_currency = self.from_currency_combobox.get()
@@ -97,7 +88,6 @@ class CurrencyConverter:
     def convert(self):
         amount_str, from_currency, to_currency = self.get_user_input()
 
-        # checking whether the amount is a valid number
         if not amount_str.isdigit():
             self.answer_label.config(text="Invalid Amount, Only Digits")
             return

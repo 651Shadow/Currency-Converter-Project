@@ -31,24 +31,24 @@ class SpeedConverter:
         self.main_frame = ttk.Frame(self.root, padding=20)
         self.main_frame.pack(fill="both", expand=True)
 
-        # Distance entry handler and Create input fields
+        # speed entry handler and Create input fields
         ttk.Label(self.main_frame, text="Enter Speed").grid(
             row=0, column=0, padx=5, pady=(10, 20), sticky="w"
         )
 
-        self.distance_entry = ttk.Entry(self.main_frame)
-        self.distance_entry.grid(row=0, column=1, padx=5, pady=5, sticky="ew")
+        self.speed_entry = ttk.Entry(self.main_frame)
+        self.speed_entry.grid(row=0, column=1, padx=5, pady=5, sticky="ew")
 
-        # Create a label for the time unit drop-down menu
-        ttk.Label(self.main_frame, text="Select time unit").grid(
+        # Create a label for the speed unit drop-down menu
+        ttk.Label(self.main_frame, text="Select speed unit").grid(
             row=1, column=0, padx=5, pady=(10, 20), sticky="w"
         )
 
-        self.time_unit = ttk.Combobox(
+        self.speed_unit = ttk.Combobox(
             self.main_frame, values=SPEED_VALUES, state="readonly"
         )
-        self.time_unit.grid(row=1, column=1, padx=5, pady=5, sticky="ew")
-        self.time_unit.current(1)
+        self.speed_unit.grid(row=1, column=1, padx=5, pady=5, sticky="ew")
+        self.speed_unit.current(1)
 
         # Create a label for conversion speed unit
         ttk.Label(self.main_frame, text="Convert speed to").grid(
@@ -86,28 +86,28 @@ class SpeedConverter:
             self.main_frame.columnconfigure(col, weight=1)
 
     def get_user_input(self):
-        distance = self.distance_entry.get()
-        time_unit = self.time_unit.get()
+        speed = self.speed_entry.get().strip()
+        speed_unit = self.speed_unit.get()
         conversion_speed_unit = self.conversion_speed_unit.get()
 
-        return distance, time_unit, conversion_speed_unit
+        return speed, speed_unit, conversion_speed_unit
 
     def convert(self):
-        distance_str, time_unit, conversion_speed_unit = self.get_user_input()
+        speed_str, speed_unit, conversion_speed_unit = self.get_user_input()
 
-        if not distance_str.isdigit():
-            self.answer_label.config(text="Invalid distance unit, Numbers ONLY!")
+        if not speed_str.isdigit():
+            self.answer_label.config(text="Invalid input, Numbers ONLY!")
             return
 
-        if time_unit == conversion_speed_unit:
+        if speed_unit == conversion_speed_unit:
             self.answer_label.config(
                 text="From and To conversion Units are the same, Try again"
             )
             return
 
-        distance = float(distance_str)
+        speed = float(speed_str)
 
-        result = speed_converter(distance, time_unit, conversion_speed_unit)
+        result = speed_converter(speed, speed_unit, conversion_speed_unit)
 
         self.answer_label.config(text=f"Answer --> {result} {conversion_speed_unit}")
 

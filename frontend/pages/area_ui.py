@@ -32,16 +32,12 @@ class AreaConverter:
         self.main_frame = ttk.Frame(self.root, padding=20)
         self.main_frame.pack(fill="both", expand=True)
 
-        # Add UI elements here
-
-        # Price entry handler
         ttk.Label(self.main_frame, text="Enter Amount").grid(
             row=0, column=0, padx=5, pady=(10, 20), sticky="w"
         )
         self.amount_entry = ttk.Entry(self.main_frame)
         self.amount_entry.grid(row=0, column=1, padx=5, pady=5, sticky="ew")
 
-        # Drop-down From Area menu
         ttk.Label(self.main_frame, text="Select From Area").grid(
             row=1, column=0, padx=5, pady=(10, 20), sticky="w"
         )
@@ -52,7 +48,6 @@ class AreaConverter:
         self.from_area_combobox.grid(row=1, column=1, padx=5, pady=5, sticky="ew")
         self.from_area_combobox.current(0)
 
-        # Drop-down To Area menu
         ttk.Label(self.main_frame, text="Select To Area").grid(
             row=2, column=0, padx=5, pady=(10, 20), sticky="w"
         )
@@ -63,7 +58,6 @@ class AreaConverter:
         self.to_area_combobox.grid(row=2, column=1, padx=5, pady=5, sticky="ew")
         self.to_area_combobox.current(1)
 
-        # Answer Label
         self.answer_label = ttk.Label(
             self.main_frame, text="Answer will appear here --> ", font=("Tahoma", 12)
         )
@@ -71,7 +65,6 @@ class AreaConverter:
             row=3, column=0, columnspan=2, padx=5, pady=5, sticky="nsew"
         )
 
-        # Convert & GO back buttons
         ttk.Button(self.main_frame, command=self.go_back, text="Go Back").grid(
             row=4, column=0, padx=10, pady=15, sticky="ew"
         )
@@ -82,7 +75,6 @@ class AreaConverter:
             command=self.convert,
         ).grid(row=4, column=1, padx=10, pady=15, sticky="ew")
 
-        # Making rows and columns dynamic
         for row in range(4):
             self.main_frame.rowconfigure(row, weight=1)
         for col in range(2):
@@ -98,7 +90,6 @@ class AreaConverter:
     def convert(self):
         amount_str, from_area, to_area = self.get_user_input()
 
-        # checking whether the amount is a valid number
         if not amount_str.isdigit():
             self.answer_label.config(text="Invalid Amount, Only Digits")
             return

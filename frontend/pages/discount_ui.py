@@ -28,16 +28,12 @@ class DiscountConverter:
         self.main_frame = ttk.Frame(self.root, padding=20)
         self.main_frame.pack(fill="both", expand=True)
 
-        # Add UI elements here
-
-        # Price entry handler
         ttk.Label(self.main_frame, text="Enter Price").grid(
             row=0, column=0, padx=5, pady=(10, 20), sticky="w"
         )
         self.entry1 = ttk.Entry(self.main_frame)
         self.entry1.grid(row=0, column=1, padx=5, pady=5, sticky="ew")
 
-        # The Discount label and it's entry field
         ttk.Label(self.main_frame, text="Enter Discount Percent").grid(
             row=1, column=0, padx=5, pady=(10, 20), sticky="w"
         )
@@ -49,7 +45,6 @@ class DiscountConverter:
         )
         self.answer.grid(row=2, column=0, columnspan=2, padx=5, pady=5, sticky="nsew")
 
-        # Convert & GO back buttons
         ttk.Button(self.main_frame, text="Go Back", command=self.go_back).grid(
             row=3, column=0, padx=10, pady=15, sticky="ew"
         )
@@ -65,7 +60,6 @@ class DiscountConverter:
         for col in range(2):
             self.main_frame.columnconfigure(col, weight=1)
 
-    # Getting values entered from the user
     def get_user_input(self):
         price = self.entry1.get().strip()
         discount_percent = self.entry2.get().strip()
@@ -99,6 +93,7 @@ class DiscountConverter:
 
     def convert(self):
         price, discount_percent = self.get_user_input()
+
         if price is None or discount_percent is None:
             return
 

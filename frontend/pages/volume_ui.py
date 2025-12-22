@@ -19,7 +19,6 @@ class VolumeConverter:
 
         self.root.mainloop()
 
-    # Add Ui elements
     def build_ui(self):
         ttk.Label(
             self.root,
@@ -31,7 +30,6 @@ class VolumeConverter:
         self.main_frame = ttk.Frame(self.root, padding=20)
         self.main_frame.pack(fill="both", expand=True)
 
-        # User Input number to convert
         ttk.Label(self.main_frame, text="Enter Volume Value").grid(
             row=0, column=0, padx=5, pady=(10, 20), sticky="w"
         )
@@ -40,7 +38,6 @@ class VolumeConverter:
             row=0, column=1, columnspan=2, padx=5, pady=5, sticky="ew"
         )
 
-        # From Unit
         ttk.Label(self.main_frame, text="From Unit").grid(
             row=1, column=0, padx=5, pady=(10, 20), sticky="w"
         )
@@ -50,7 +47,6 @@ class VolumeConverter:
         self.convert_from.grid(row=1, column=1, padx=5, pady=5, sticky="ew")
         self.convert_from.current(1)
 
-        # To Unit label, drop-down menu
         ttk.Label(self.main_frame, text="To Unit").grid(
             row=2, column=0, padx=5, pady=(10, 20), sticky="w"
         )
@@ -60,7 +56,6 @@ class VolumeConverter:
         self.convert_to.grid(row=2, column=1, padx=5, pady=5, sticky="ew")
         self.convert_to.current(0)
 
-        # Result label
         self.result_label = ttk.Label(
             self.main_frame,
             text="Your result will appear here --> ",
@@ -70,7 +65,6 @@ class VolumeConverter:
             row=3, column=0, columnspan=2, padx=5, pady=(10, 20), sticky="w"
         )
 
-        # Convert & Go back Buttons
         ttk.Button(
             self.main_frame,
             text="Convert",
@@ -97,7 +91,6 @@ class VolumeConverter:
     def convert(self):
         amount_str, from_input, to_input = self.get_user_input()
 
-        # Validate input
         if not amount_str.isdigit():
             self.result_label.config(text="Invalid input, Try again")
             return
