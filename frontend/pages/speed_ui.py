@@ -96,7 +96,13 @@ class SpeedConverter:
         distance_str, time_unit, conversion_speed_unit = self.get_user_input()
 
         if not distance_str.isdigit():
-            self.answer_label.config(text="Invalid distance, numbers ONLY!")
+            self.answer_label.config(text="Invalid distance unit, Numbers ONLY!")
+            return
+
+        if time_unit == conversion_speed_unit:
+            self.answer_label.config(
+                text="From and To conversion Units are the same, Try again"
+            )
             return
 
         distance = float(distance_str)

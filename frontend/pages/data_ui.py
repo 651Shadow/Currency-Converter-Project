@@ -64,7 +64,9 @@ class DataConverter:
         self.result_label = ttk.Label(
             self.main_frame, text="Your result will be here --> ", font=("Tahoma", 12)
         )
-        self.result_label.grid(row=3, column=0, padx=5, pady=(10, 20), sticky="w")
+        self.result_label.grid(
+            row=3, column=0, columnspan=2, padx=5, pady=(10, 20), sticky="w"
+        )
 
         # Convert button
         self.convert_button = ttk.Button(
@@ -96,6 +98,12 @@ class DataConverter:
         # Implement conversion logic here
         if not amount_str.isdigit():
             self.result_label.config(text="Invalid input, Try again")
+            return
+
+        if from_input == to_input:
+            self.result_label.config(
+                text="From and To conversion Units are the same, Try again"
+            )
             return
 
         amount = float(amount_str)

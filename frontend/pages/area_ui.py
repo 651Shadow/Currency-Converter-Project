@@ -103,6 +103,10 @@ class AreaConverter:
             self.answer_label.config(text="Invalid Amount, Only Digits")
             return
 
+        if from_area == to_area:
+            self.answer_label.config(text="From and To Area are the same")
+            return
+
         amount = float(amount_str)
         result = convert_area(amount, from_area, to_area)
 

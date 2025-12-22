@@ -99,6 +99,12 @@ class TemperatureConverter:
             self.answer_label.config(text="Invalid input, Numbers ONLY!")
             return
 
+        if unit == conversion_unit:
+            self.answer_label.config(
+                text="From and To conversion Units are the same, Try again"
+            )
+            return
+
         temp = float(temp_str)
 
         result = Temperature_convert(temp, unit, conversion_unit)
