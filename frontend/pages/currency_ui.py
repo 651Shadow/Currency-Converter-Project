@@ -103,6 +103,10 @@ class CurrencyConverter:
             return
         
 
+        if from_currency == to_currency:
+            self.answer_label.config(text="From and To conversion units are the same")
+            return
+
         amount = float(amount_str)
         result = convert_currency(amount, from_currency, to_currency)
 

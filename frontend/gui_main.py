@@ -12,7 +12,3 @@ class App:
 
         styling(self.root)
         Converter_frames(self.root)
-
-
-if __name__ == "__main__":
-    pass 

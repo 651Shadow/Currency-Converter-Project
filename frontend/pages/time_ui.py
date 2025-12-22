@@ -55,10 +55,12 @@ class TimeConverter:
         self.to_box.grid(row=2, column=1, padx=5, pady=5, sticky="ew")
         self.to_box.current(1)
 
-        self.answer = ttk.Label(
+        self.answer_label = ttk.Label(
             self.main_frame, text="Time converted --> ", font=("Tahoma", 12)
         )
-        self.answer.grid(row=3, column=0, columnspan=2, padx=5, pady=5, sticky="nsew")
+        self.answer_label.grid(
+            row=3, column=0, columnspan=2, padx=5, pady=5, sticky="nsew"
+        )
 
         # The Entry and backward buttons
         ttk.Button(self.main_frame, command=self.go_back, text="Go Back").grid(
@@ -85,14 +87,21 @@ class TimeConverter:
 
     def convert(self):
         amount_str, from_unit, to_unit = self.get_user_input()
+
         if not amount_str.isdigit():
-            self.answer.config(text="Invalid input. Please enter a valid number.")
+            self.answer_label.config(text="Invalid input. Please enter a valid number.")
+            return
+
+        if from_unit == to_unit:
+            self.answer_label.config(
+                text="From and To conversion Units are the same, Try again"
+            )
             return
 
         amount = float(amount_str)
         result = convert_time(amount, from_unit, to_unit)
 
-        self.answer.config(text=f"Time converted --> {result} {to_unit}")
+        self.answer_label.config(text=f"Time converted --> {result} {to_unit}")
 
     def go_back(self):
         from frontend.gui_main import App

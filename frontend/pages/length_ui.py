@@ -96,6 +96,10 @@ class LengthConverter:
             self.answer.config(text="Invalid Amount, Only Digits")
             return
 
+        if unit == conversion_unit:
+            self.answer.config(text="From and To Units are the same")
+            return
+
         length = float(length_str)
 
         converted_length = convert_length(length, unit, conversion_unit)
